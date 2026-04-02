@@ -3,13 +3,14 @@ import mysql.connector
 import uuid
 
 app = Flask(__name__)
+import os
+import mysql.connector
 
-# MySQL connection
 db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="root",
-    database="inmba"
+    host=os.environ.get("localhost"),
+    user=os.environ.get("root"),
+    password=os.environ.get("root"),
+    database=os.environ.get("inmba")
 )
 
 cursor = db.cursor()
